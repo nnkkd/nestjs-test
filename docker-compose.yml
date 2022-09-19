@@ -1,0 +1,26 @@
+version: "3"
+services:
+  mysql:
+    build: ./db
+    image: mysql:5.7
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    container_name: mysql
+    volumes:
+      - ./db/mysql:/var/lib/mysql
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: test
+
+
+  api:
+   container_name: app
+   build: ./db
+   tty: true
+   ports:
+     - "3000:3000"
+   volumes:
+     - .:/api
+     - /api/db
