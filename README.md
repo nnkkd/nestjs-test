@@ -1,6 +1,9 @@
 # nestjs-test
 コンテナ間通信のテスト
 nest.js / TypeORM / Mysql
+
+
+## ディレクトリ構成メモ
 ```
 .
 ├── db
@@ -18,3 +21,5 @@ nest.js / TypeORM / Mysql
 .
 
 ```
+
+HTTPリクエストを受けてDBに作用するものを目指す
