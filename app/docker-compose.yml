@@ -1,7 +1,6 @@
-version: "3"
+version: "3.7"
 services:
   mysql:
-    build: ./db
     image: mysql:5.7
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     container_name: mysql
@@ -13,14 +12,23 @@ services:
       - 3306:3306
     environment:
       MYSQL_DATABASE: test
+      MYSQL_ROOT_PASSWORD: password
 
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
 
   api:
-   container_name: app
-   build: ./db
-   tty: true
-   ports:
-     - "3000:3000"
-   volumes:
-     - .:/api
-     - /api/db
+    container_name: app
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    tty: true
+    ports:
+      - "3000:3000"
+    restart: always
+    volumes:
+      - .:/api
+      - /api/db
