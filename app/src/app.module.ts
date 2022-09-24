@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { TstService } from './tst/tst.service';
 import { TstModule } from './tst/tst.module';
 import { Tst } from './tst/tst.entity';
+import { TstController } from './tst/tst.controller';
 
 @Module({
   imports: [
@@ -21,6 +22,6 @@ import { Tst } from './tst/tst.entity';
     TstModule,
   ],
   controllers: [AppController],
-  providers: [AppService, TstService],
+  providers: [AppService],
 })
 export class AppModule { }
