@@ -21,6 +21,6 @@ import { Tst } from './tst/tst.entity';
     TstModule,
   ],
   controllers: [AppController],
-  providers: [AppService, TstService],
+  providers: [AppService],
 })
 export class AppModule { }
