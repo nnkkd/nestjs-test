@@ -1,3 +1,3 @@
-export class TstDTO {
+export class TstDto {
     content: string;
 }

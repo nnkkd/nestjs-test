@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { InsertResult, Repository } from 'typeorm';
-import { TstDTO } from './tst.dto';
+import { TstDto } from './tst.dto';
 import { Tst } from './tst.entity';
 
 @Injectable()
@@ -11,7 +11,7 @@ export class TstService {
         private readonly tstRepository: Repository<Tst>
     ) { }
 
-    async create(Tst: TstDTO): Promise<InsertResult> {
+    async create(Tst: TstDto): Promise<InsertResult> {
         return await this.tstRepository.insert(Tst);
     }
 
